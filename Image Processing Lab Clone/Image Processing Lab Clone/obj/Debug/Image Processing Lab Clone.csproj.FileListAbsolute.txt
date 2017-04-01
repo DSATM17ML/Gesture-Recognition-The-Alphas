@@ -1,0 +1,17 @@
+c:\users\user1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Image Processing Lab Clone.exe.config
+c:\users\user1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Image Processing Lab Clone.exe
+c:\users\user1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Image Processing Lab Clone.pdb
+c:\users\user1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\obj\Debug\Image Processing Lab Clone.csprojResolveAssemblyReference.cache
+c:\users\user1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\obj\Debug\Image_Processing_Lab_Clone.Form1.resources
+c:\users\user1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\obj\Debug\Image_Processing_Lab_Clone.Properties.Resources.resources
+c:\users\user1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\obj\Debug\Image Processing Lab Clone.csproj.GenerateResource.Cache
+c:\users\user1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\obj\Debug\Image Processing Lab Clone.exe
+c:\users\user1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\obj\Debug\Image Processing Lab Clone.pdb
+c:\users\user1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Controls.dll
+c:\users\user1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.dll
+c:\users\user1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Imaging.dll
+c:\users\user1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Math.dll
+c:\users\user1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\DockingToolbar.dll
+c:\users\user1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\SourceGrid2.dll
+c:\users\user1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\SourceLibrary.dll
+c:\users\user1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\WeifenLuo.WinFormsUI.dll
