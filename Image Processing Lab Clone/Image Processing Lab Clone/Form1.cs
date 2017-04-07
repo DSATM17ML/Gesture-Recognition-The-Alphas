@@ -31,17 +31,15 @@ namespace Image_Processing_Lab_Clone
             if (openDialog.ShowDialog() == DialogResult.OK)
             {
                 pictureBox1.Image = new Bitmap(openDialog.FileName);
+               // Bitmap sampleImage = new Bitmap(openDialog.FileName);
             }
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //int i = 0;
-            //i++;
-            //string st = i.ToString();
-            //string copy = "_Copy";
-            //string filepath=pictureBox1.ImageLocation;
-            //pictureBox1.Image.Save(@"Path"+copy,System.Drawing.Imaging.ImageFormat.Jpeg);
+            //Bitmap sampleImage = new Bitmap(pictureBox1.ImageLocation);
+            //sampleImage = (Bitmap)pictureBox2.Image;
+            //sampleImage.Image.Save(@"Path",System.Drawing.Imaging.ImageFormat.Jpeg);
         }
 
         private void histogramToolStripMenuItem_Click(object sender, EventArgs e)
@@ -89,5 +87,38 @@ namespace Image_Processing_Lab_Clone
             HueModifier thresheuObject = new HueModifier();
             pictureBox2.Image = thresheuObject.Apply((Bitmap)pictureBox1.Image);
         }
+
+        private void detectSkinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int x = 0, y = 0,Max=0,Min=0;
+            pictureBox2.InitialImage = null;
+            OpenFileDialog openDialog = new OpenFileDialog();
+            if (openDialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox2.Image = new Bitmap(openDialog.FileName);
+                Bitmap skinTest = new Bitmap(openDialog.FileName);
+                for (x = 1; x < skinTest.Width - 1; x++)
+                {
+                    for (y = 1; y < skinTest.Height - 1; y++)
+                    {
+                        System.Drawing.Color skinTestColor = skinTest.GetPixel(x, y);
+                        Max = Math.Max(skinTestColor.R, Math.Max(skinTestColor.G, skinTestColor.B));
+                        Min = Math.Min(skinTestColor.R, Math.Min(skinTestColor.G, skinTestColor.B));
+                        if (!((skinTestColor.R > 95 && skinTestColor.G > 40 && skinTestColor.B > 20 && (Max - Min) > 15 && Math.Abs(skinTestColor.R - skinTestColor.G) > 15 && skinTestColor.R > skinTestColor.G && skinTestColor.R > skinTestColor.B)))
+                        {
+                            skinTest.SetPixel(x, y, Color.Black);
+                        }
+
+                    }
+                    
+                }
+                pictureBox2.Image = skinTest;
+              
+            }
+            //Bitmap skinTest = new Bitmap(pictureBox1.ImageLocation);
+            
+
+        }
+        
     }
 }

@@ -15,3 +15,16 @@ c:\users\user1\documents\visual studio 2017\Projects\Image Processing Lab Clone\
 c:\users\user1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\SourceGrid2.dll
 c:\users\user1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\SourceLibrary.dll
 c:\users\user1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\WeifenLuo.WinFormsUI.dll
+C:\Users\USER1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.dll.config
+C:\Users\USER1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.dll
+C:\Users\USER1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.Imaging.dll
+C:\Users\USER1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.MachineLearning.GPL.dll
+C:\Users\USER1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.Math.Core.dll
+C:\Users\USER1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.Math.dll
+C:\Users\USER1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.Statistics.dll
+C:\Users\USER1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.xml
+C:\Users\USER1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.Imaging.xml
+C:\Users\USER1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.MachineLearning.GPL.xml
+C:\Users\USER1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.Math.xml
+C:\Users\USER1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.Math.Core.xml
+C:\Users\USER1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.Statistics.xml
