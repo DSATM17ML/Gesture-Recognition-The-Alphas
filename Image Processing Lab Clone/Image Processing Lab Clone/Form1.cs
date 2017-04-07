@@ -95,7 +95,7 @@ namespace Image_Processing_Lab_Clone
             OpenFileDialog openDialog = new OpenFileDialog();
             if (openDialog.ShowDialog() == DialogResult.OK)
             {
-                pictureBox2.Image = new Bitmap(openDialog.FileName);
+                pictureBox1.Image = new Bitmap(openDialog.FileName);
                 Bitmap skinTest = new Bitmap(openDialog.FileName);
                 for (x = 1; x < skinTest.Width - 1; x++)
                 {
