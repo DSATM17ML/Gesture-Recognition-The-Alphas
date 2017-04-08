@@ -28,3 +28,49 @@ C:\Users\USER1\documents\visual studio 2017\Projects\Image Processing Lab Clone\
 C:\Users\USER1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.Math.xml
 C:\Users\USER1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.Math.Core.xml
 C:\Users\USER1\documents\visual studio 2017\Projects\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.Statistics.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.dll.config
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Image Processing Lab Clone.exe.config
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Image Processing Lab Clone.exe
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Image Processing Lab Clone.pdb
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.Imaging.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.MachineLearning.GPL.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.Math.Core.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.Math.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.Statistics.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Controls.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Imaging.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Math.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Video.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.Imaging.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.MachineLearning.GPL.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.Math.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.Math.Core.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Accord.Statistics.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Controls.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Imaging.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Math.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Video.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\obj\Debug\Image Processing Lab Clone.csprojResolveAssemblyReference.cache
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\obj\Debug\Image_Processing_Lab_Clone.Form1.resources
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\obj\Debug\Image_Processing_Lab_Clone.Properties.Resources.resources
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\obj\Debug\Image Processing Lab Clone.csproj.GenerateResource.Cache
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\obj\Debug\Image Processing Lab Clone.exe
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\obj\Debug\Image Processing Lab Clone.pdb
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Emgu.CV.World.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Emgu.CV.World.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Emgu.CV.DebuggerVisualizers.VS2010.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Emgu.CV.DebuggerVisualizers.VS2012.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Emgu.CV.DebuggerVisualizers.VS2013.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Emgu.CV.DebuggerVisualizers.VS2015.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Emgu.CV.DebuggerVisualizers.VS2017.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Emgu.CV.UI.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Emgu.CV.UI.GL.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Microsoft.VisualStudio.DebuggerVisualizers.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\ZedGraph.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Emgu.CV.UI.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Emgu.CV.UI.GL.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\obj\Debug\Image Processing Lab Clone.csproj.Image Processing Lab Clone.exe.config

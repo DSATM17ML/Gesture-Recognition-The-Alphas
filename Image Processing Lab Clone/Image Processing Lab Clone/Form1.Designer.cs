@@ -41,12 +41,12 @@
             this.thresholdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saturationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fourierTransformToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.detectSkinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.detectSkinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -79,21 +79,21 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(120, 26);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(120, 26);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(120, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -153,6 +153,13 @@
             this.fourierTransformToolStripMenuItem.Text = "Hue Modifier";
             this.fourierTransformToolStripMenuItem.Click += new System.EventHandler(this.fourierTransformToolStripMenuItem_Click);
             // 
+            // detectSkinToolStripMenuItem
+            // 
+            this.detectSkinToolStripMenuItem.Name = "detectSkinToolStripMenuItem";
+            this.detectSkinToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.detectSkinToolStripMenuItem.Text = "Detect Skin";
+            this.detectSkinToolStripMenuItem.Click += new System.EventHandler(this.detectSkinToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
@@ -189,6 +196,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox1
             // 
@@ -200,13 +208,6 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
-            // 
-            // detectSkinToolStripMenuItem
-            // 
-            this.detectSkinToolStripMenuItem.Name = "detectSkinToolStripMenuItem";
-            this.detectSkinToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
-            this.detectSkinToolStripMenuItem.Text = "Detect Skin";
-            this.detectSkinToolStripMenuItem.Click += new System.EventHandler(this.detectSkinToolStripMenuItem_Click);
             // 
             // Form1
             // 
