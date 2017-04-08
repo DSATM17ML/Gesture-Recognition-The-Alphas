@@ -44,12 +44,21 @@ namespace Image_Processing_Lab_Clone
         {
             SaveFileDialog saveDialog = new SaveFileDialog();
             saveDialog.Filter = "Image Files (*.jpg)|*.jpg";
-            saveDialog.DefaultExt = "jpeg";
-            if (saveDialog.ShowDialog() == DialogResult.OK)
+            saveDialog.DefaultExt = "jpg";
+            try
             {
-                pictureBox2.Image.Save(saveDialog.FileName);
+                Bitmap saveImg = new Bitmap(pictureBox2.Image);
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    saveImg.Save(saveDialog.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
 
+                }
             }
+            catch(Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("No Valid Image");
+            }
+            
         }
 
         private void histogramToolStripMenuItem_Click(object sender, EventArgs e)
@@ -162,6 +171,8 @@ namespace Image_Processing_Lab_Clone
                         buffer[offset + 0] = buffer[offset + 1] = buffer[offset + 2] = 255;
                     }
                 }
+            }
+
                 /*int x = 0, y = 0, Max = 0, Min = 0;
                 pictureBox2.InitialImage = null;
                 OpenFileDialog openDialog = new OpenFileDialog();
@@ -187,7 +198,7 @@ namespace Image_Processing_Lab_Clone
                     pictureBox2.Image = skinTest;
 
                 }*/
-            }
+            
         
         //Bitmap skinTst = new Bitmap(pictureBox1.ImageLocation);
 
@@ -296,6 +307,157 @@ namespace Image_Processing_Lab_Clone
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void morphologyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void morphologyToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void openingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Opening filter = new Opening();
+            pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
+        }
+
+        private void closingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // create filter
+            Closing filter = new Closing();
+            // apply the filter
+            pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
+        }
+
+        private void loopToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void loopToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dilationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //create filter
+            Dilatation filter = new Dilatation();
+            // apply the filter
+            pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
+        }
+
+        private void erosionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //create filter
+            Erosion filter = new Erosion();
+            // apply the filter
+            pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
+        }
+
+        private void topHatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //create filter
+            TopHat filter = new TopHat();
+            // apply the filter
+            pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
+
+        }
+
+        private void bottomHatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //create filter
+            BottomHat filter = new BottomHat();
+            // apply the filter
+            pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
+
+        }
+
+        private void loopToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            //create filter
+            Erosion filter = new Erosion();
+            // apply the filter
+            pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
+
+        }
+
+        private void loopToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            //create filter
+            Dilatation filter = new Dilatation();
+            // apply the filter
+            pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
+        }
+
+        private void blobsFilteringToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BlobsFiltering filter = new BlobsFiltering();
+            pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
+        }
+
+        private void reApplyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BlobsFiltering filter = new BlobsFiltering();
+            pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
+        }
+
+        private void homogenitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HomogenityEdgeDetector filter = new HomogenityEdgeDetector();
+            pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
+        }
+
+        private void differenceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DifferenceEdgeDetector filter = new DifferenceEdgeDetector();
+            pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
+        }
+
+        private void cobelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SobelEdgeDetector filter = new SobelEdgeDetector();
+            pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
+        }
+
+        private void cannyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CannyEdgeDetector filter = new CannyEdgeDetector();
+            pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
+        }
+
+        private void reApplyToolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            GrayscaleBT709 filter = new GrayscaleBT709();
+            pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
+        }
+
+        private void reApplyToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            HomogenityEdgeDetector filter = new HomogenityEdgeDetector();
+            pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
+        }
+
+        private void reApplyToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            DifferenceEdgeDetector filter = new DifferenceEdgeDetector();
+            pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
+        }
+
+        private void reApplyToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            SobelEdgeDetector filter = new SobelEdgeDetector();
+            pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
+        }
+
+        private void reApplyToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CannyEdgeDetector filter = new CannyEdgeDetector();
+            pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
         }
     }
 }

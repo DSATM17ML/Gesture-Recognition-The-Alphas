@@ -74,3 +74,33 @@ E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Ima
 E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Emgu.CV.UI.xml
 E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\Emgu.CV.UI.GL.xml
 E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\obj\Debug\Image Processing Lab Clone.csproj.Image Processing Lab Clone.exe.config
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.DebuggerVisualizers (2010).dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Fuzzy.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Genetic.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Imaging.Formats.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Imaging.IPPrototyper.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.MachineLearning.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Neuro.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Robotics.Lego.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Robotics.Surveyor.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Robotics.TeRK.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Video.DirectShow.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Video.FFMPEG.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Video.Kinect.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Video.VFW.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Video.Ximea.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Vision.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Fuzzy.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Genetic.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Imaging.Formats.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.MachineLearning.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Neuro.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Robotics.Lego.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Robotics.Surveyor.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Robotics.TeRK.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Video.DirectShow.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Video.FFMPEG.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Video.Kinect.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Video.VFW.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Video.Ximea.xml
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\AForge.Vision.xml
