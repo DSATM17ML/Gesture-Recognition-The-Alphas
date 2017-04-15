@@ -22,7 +22,8 @@ namespace Image_Processing_Lab_Clone
 {
     public partial class Form1 : Form
     {
-        public Bitmap srcImg,dstImg;
+        public Bitmap srcImg, dstImg;
+        IntPoint blobCor;
         public Form1()
         {
             InitializeComponent();
@@ -63,11 +64,11 @@ namespace Image_Processing_Lab_Clone
 
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
                 System.Windows.Forms.MessageBox.Show("No Valid Image");
             }
-            
+
         }
 
         private void histogramToolStripMenuItem_Click(object sender, EventArgs e)
@@ -123,7 +124,7 @@ namespace Image_Processing_Lab_Clone
                 pictureBox2.Image = thresheuObject.Apply((Bitmap)pictureBox1.Image);
                 dstImg = thresheuObject.Apply(dstImg);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 MessageBox.Show("Not Possible");
             }
@@ -196,39 +197,102 @@ namespace Image_Processing_Lab_Clone
                 }
             }
 
-                /*int x = 0, y = 0, Max = 0, Min = 0;
-                pictureBox2.InitialImage = null;
-                OpenFileDialog openDialog = new OpenFileDialog();
-                if (openDialog.ShowDialog() == DialogResult.OK)
+            /*int x = 0, y = 0, Max = 0, Min = 0;
+            pictureBox2.InitialImage = null;
+            OpenFileDialog openDialog = new OpenFileDialog();
+            if (openDialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image = new Bitmap(openDialog.FileName);
+                Bitmap skinTest = new Bitmap(openDialog.FileName);
+                for (x = 1; x < skinTest.Width - 1; x++)
                 {
-                    pictureBox1.Image = new Bitmap(openDialog.FileName);
-                    Bitmap skinTest = new Bitmap(openDialog.FileName);
-                    for (x = 1; x < skinTest.Width - 1; x++)
+                    for (y = 1; y < skinTest.Height - 1; y++)
                     {
-                        for (y = 1; y < skinTest.Height - 1; y++)
+                        System.Drawing.Color skinTestColor = skinTest.GetPixel(x, y);
+                        Max = Math.Max(skinTestColor.R, Math.Max(skinTestColor.G, skinTestColor.B));
+                        Min = Math.Min(skinTestColor.R, Math.Min(skinTestColor.G, skinTestColor.B));
+                        if (!((skinTestColor.R > 95 && skinTestColor.G > 40 && skinTestColor.B > 20 && (Max - Min) > 15 && Math.Abs(skinTestColor.R - skinTestColor.G) > 15 && skinTestColor.R > skinTestColor.G && skinTestColor.R > skinTestColor.B)))
                         {
-                            System.Drawing.Color skinTestColor = skinTest.GetPixel(x, y);
+                            skinTest.SetPixel(x, y, Color.Black);
+                        }
+                    }
+                }
+                pictureBox2.Image = skinTest;
+            }*/
+
+
+            //Bitmap skinTst = new Bitmap(pictureBox1.ImageLocation);
+
+
+            /*            
+                  int x = 0, y = 0, Max = 0, Min = 0, R = 0, G = 0, B = 0,D = 0, DR, DG, DB;
+                  double H = 0, S = 0, V = 0, Y = 0, Cr = 0, Cb = 0;
+                  OpenFileDialog openDialog = new OpenFileDialog();
+                  if (openDialog.ShowDialog() == DialogResult.OK)
+                  {
+                      pictureBox1.Image = new Bitmap(openDialog.FileName);
+                      Bitmap skinTest = new Bitmap(openDialog.FileName);
+                      for (x = 1; x < skinTest.Width - 1; x++)
+                      {
+                          for (y = 1; y < skinTest.Height - 1; y++)
+                          {
+                              System.Drawing.Color skinTestColor = skinTest.GetPixel(x, y);
                             Max = Math.Max(skinTestColor.R, Math.Max(skinTestColor.G, skinTestColor.B));
                             Min = Math.Min(skinTestColor.R, Math.Min(skinTestColor.G, skinTestColor.B));
-                            if (!((skinTestColor.R > 95 && skinTestColor.G > 40 && skinTestColor.B > 20 && (Max - Min) > 15 && Math.Abs(skinTestColor.R - skinTestColor.G) > 15 && skinTestColor.R > skinTestColor.G && skinTestColor.R > skinTestColor.B)))
+                            R = (skinTestColor.R / 255);
+                            G = (skinTestColor.G / 255);
+                            B = (skinTestColor.B / 255);
+                            D = Max - Min;
+                            V = Max;
+                            if(D==0)
                             {
-                                skinTest.SetPixel(x, y, Color.Black);
+                                H = 0;
+                                S = 0;
                             }
+                            else
+                            {
+                                S = D / Max;
+                                DR = (((Max - R) / 6) + (Max / 2)) / Max;
+                                DG = (((Max - G) / 6) + (Max / 2)) / Max;
+                                DB = (((Max - B) / 6) + (Max / 2)) / Max;
+                                if (R == Max)
+                                    H = DB - DG;
+                                else if (G == Max)
+                                    H = (1 / 3) + DR - DB;
+                                else if (B == Max)
+                                    H = (2 / 3) + DG - DR;
+                                if (H < 0)
+                                    H += 1;
+                                if (H > 1)
+                                    H -= 1;
+                                R = skinTestColor.R;
+                                B = skinTestColor.B;
+                                G = skinTestColor.G;
+                                Y = (0.299 * R) + (0.587 * G) + (0.114 * B);
+                                Cb = (128 - (0.168736 * R) + (0.331264 * G) + (0.5 * B));
+                                Cr = (128 + (0.5 * R) + (0.418688 * G) + (0.081312 * B));
+                                //H = skinTestColor.GetHue();
+                                //S = skinTestColor.GetSaturation();
+                                //V = skinTestColor.GetBrightness();
+                                if ((((skinTestColor.R > 95 && skinTestColor.G > 40 && skinTestColor.B > 20 && (Max - Min) > 15 && Math.Abs(skinTestColor.R - skinTestColor.G) > 15 && skinTestColor.R > skinTestColor.B && skinTestColor.R > skinTestColor.G) || ((skinTestColor.R > 220 && skinTestColor.G > 210 && skinTestColor.B > 170 && Math.Abs(skinTestColor.R - skinTestColor.G) <= 15 && skinTestColor.R > skinTestColor.B && skinTestColor.G > skinTestColor.B)) && ((Cr <= -2.2857 * Cb + 432.85) && (Cr <= -1.15 * Cb + 301.75) && (Cr >= -4.5652 * Cb + 234.5652) && (Cr >= 0.3448 * Cb + 76.2069) && (Cr <= 1.5862 * Cb + 20)) && (H >=0.05 && H<=0.17))
+                                {
+                                    skinTest.SetPixel(x, y, Color.Black);
+                                }
+                                else
+                                {
+                                    skinTest.SetPixel(x, y, Color.White);
+                                }
+                            }
+                          }
 
-                        }
+                      }
+                      pictureBox2.Image = skinTest;
+                  }
+             */
 
-                    }
-                    pictureBox2.Image = skinTest;
-
-                }*/
-            
-        
-        //Bitmap skinTst = new Bitmap(pictureBox1.ImageLocation);
-
-
-        /*            
-              int x = 0, y = 0, Max = 0, Min = 0, R = 0, G = 0, B = 0,D = 0, DR, DG, DB;
-              double H = 0, S = 0, V = 0, Y = 0, Cr = 0, Cb = 0;
+            /*
+              int x = 0, y = 0, R = 0, G = 0, B = 0;
+              double Y = 0, Cr = 0, Cb = 0;
               OpenFileDialog openDialog = new OpenFileDialog();
               if (openDialog.ShowDialog() == DialogResult.OK)
               {
@@ -239,94 +303,23 @@ namespace Image_Processing_Lab_Clone
                       for (y = 1; y < skinTest.Height - 1; y++)
                       {
                           System.Drawing.Color skinTestColor = skinTest.GetPixel(x, y);
-                        Max = Math.Max(skinTestColor.R, Math.Max(skinTestColor.G, skinTestColor.B));
-                        Min = Math.Min(skinTestColor.R, Math.Min(skinTestColor.G, skinTestColor.B));
-                        R = (skinTestColor.R / 255);
-                        G = (skinTestColor.G / 255);
-                        B = (skinTestColor.B / 255);
-                        D = Max - Min;
-                        V = Max;
-                        if(D==0)
-                        {
-                            H = 0;
-                            S = 0;
-                        }
-                        else
-                        {
-                            S = D / Max;
-                            DR = (((Max - R) / 6) + (Max / 2)) / Max;
-                            DG = (((Max - G) / 6) + (Max / 2)) / Max;
-                            DB = (((Max - B) / 6) + (Max / 2)) / Max;
-
-                            if (R == Max)
-                                H = DB - DG;
-                            else if (G == Max)
-                                H = (1 / 3) + DR - DB;
-                            else if (B == Max)
-                                H = (2 / 3) + DG - DR;
-
-                            if (H < 0)
-                                H += 1;
-                            if (H > 1)
-                                H -= 1;
-                            R = skinTestColor.R;
-                            B = skinTestColor.B;
-                            G = skinTestColor.G;
-                            Y = (0.299 * R) + (0.587 * G) + (0.114 * B);
-                            Cb = (128 - (0.168736 * R) + (0.331264 * G) + (0.5 * B));
-                            Cr = (128 + (0.5 * R) + (0.418688 * G) + (0.081312 * B));
-
-                            //H = skinTestColor.GetHue();
-                            //S = skinTestColor.GetSaturation();
-                            //V = skinTestColor.GetBrightness();
-                            if ((((skinTestColor.R > 95 && skinTestColor.G > 40 && skinTestColor.B > 20 && (Max - Min) > 15 && Math.Abs(skinTestColor.R - skinTestColor.G) > 15 && skinTestColor.R > skinTestColor.B && skinTestColor.R > skinTestColor.G) || ((skinTestColor.R > 220 && skinTestColor.G > 210 && skinTestColor.B > 170 && Math.Abs(skinTestColor.R - skinTestColor.G) <= 15 && skinTestColor.R > skinTestColor.B && skinTestColor.G > skinTestColor.B)) && ((Cr <= -2.2857 * Cb + 432.85) && (Cr <= -1.15 * Cb + 301.75) && (Cr >= -4.5652 * Cb + 234.5652) && (Cr >= 0.3448 * Cb + 76.2069) && (Cr <= 1.5862 * Cb + 20)) && (H >=0.05 && H<=0.17))
-                            {
-                                skinTest.SetPixel(x, y, Color.Black);
-                            }
-                            else
-                            {
-                                skinTest.SetPixel(x, y, Color.White);
-                            }
-                        }
-
+                          R = skinTestColor.R;
+                          B = skinTestColor.B;
+                          G = skinTestColor.G;
+                          Y = (0.299 * R) + (0.587 * G) + (0.114 * B);
+                          Cb = (128 - (0.168736 * R) + (0.331264 * G) + (0.5 * B));
+                          Cr = (128 + (0.5 * R) + (0.418688 * G) + (0.081312 * B));
+                          if(Cr>150 && Cr<200 && Cb>100 && Cb<150)
+                          {
+                              skinTest.SetPixel(x, y, Color.Black);
+                          }
                       }
-                
                   }
                   pictureBox2.Image = skinTest;
               }
-         */
+              */
 
-        /*
-          int x = 0, y = 0, R = 0, G = 0, B = 0;
-          double Y = 0, Cr = 0, Cb = 0;
-          OpenFileDialog openDialog = new OpenFileDialog();
-          if (openDialog.ShowDialog() == DialogResult.OK)
-          {
-              pictureBox1.Image = new Bitmap(openDialog.FileName);
-              Bitmap skinTest = new Bitmap(openDialog.FileName);
-              for (x = 1; x < skinTest.Width - 1; x++)
-              {
-                  for (y = 1; y < skinTest.Height - 1; y++)
-                  {
-                      System.Drawing.Color skinTestColor = skinTest.GetPixel(x, y);
-                      R = skinTestColor.R;
-                      B = skinTestColor.B;
-                      G = skinTestColor.G;
-                      Y = (0.299 * R) + (0.587 * G) + (0.114 * B);
-                      Cb = (128 - (0.168736 * R) + (0.331264 * G) + (0.5 * B));
-                      Cr = (128 + (0.5 * R) + (0.418688 * G) + (0.081312 * B));
-                      if(Cr>150 && Cr<200 && Cb>100 && Cb<150)
-                      {
-                          skinTest.SetPixel(x, y, Color.Black);
-                      }
-
-                  }
-              }
-              pictureBox2.Image = skinTest;
-          }
-          */
-    
-    }
+        }
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
@@ -334,12 +327,12 @@ namespace Image_Processing_Lab_Clone
 
         private void morphologyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void morphologyToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-           
+
         }
 
         private void openingToolStripMenuItem_Click(object sender, EventArgs e)
@@ -372,12 +365,12 @@ namespace Image_Processing_Lab_Clone
 
         private void loopToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void loopToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void dilationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -418,7 +411,7 @@ namespace Image_Processing_Lab_Clone
                 pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
                 dstImg = filter.Apply(dstImg);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 MessageBox.Show("Apply Grayscale");
             }
@@ -435,7 +428,7 @@ namespace Image_Processing_Lab_Clone
                 pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
                 dstImg = filter.Apply(dstImg);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 MessageBox.Show("Apply Grayscale");
             }
@@ -467,7 +460,7 @@ namespace Image_Processing_Lab_Clone
 
         private void blobsFilteringToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void reApplyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -475,6 +468,7 @@ namespace Image_Processing_Lab_Clone
             ExtractBiggestBlob filter = new ExtractBiggestBlob();
             pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
             dstImg = filter.Apply(dstImg);
+            blobCor = filter.BlobPosition;
             //dstImg.BlobPosition;
         }
 
@@ -583,6 +577,7 @@ namespace Image_Processing_Lab_Clone
             ExtractBiggestBlob filter = new ExtractBiggestBlob();
             pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
             dstImg = filter.Apply(dstImg);
+            blobCor = filter.BlobPosition;
         }
 
         private void blobCounterBaseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -603,15 +598,6 @@ namespace Image_Processing_Lab_Clone
 
         private void resizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Bitmap image = new Bitmap(pictureBox2.Image);
-            image = resize(image, new Size(200, 200));
-            SaveFileDialog saveDialog = new SaveFileDialog();
-            saveDialog.Filter = "Jpg (*.jpg) | *.jpg";
-            saveDialog.DefaultExt = "Jpg";
-            if (saveDialog.ShowDialog() == DialogResult.OK)
-            {
-                image.Save(saveDialog.FileName);
-            }
             //image.Save(@"C:\Users\SAI SRUJAN\Documents\Visual Studio 2017\Projects\demo\demo\test\test.jpg");
         }
 
@@ -679,30 +665,33 @@ namespace Image_Processing_Lab_Clone
             filter.ApplyInPlace((Bitmap)pictureBox2.Image);
             filter.ApplyInPlace(dstImg);
             */
-            /*
-            Bitmap newBmp = new Bitmap(dstImg.Width, dstImg.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-
+            //srcImg = resize(srcImg, new Size(200, 200));
+            //dstImg = resize(dstImg, new Size(200, 200));
+            /*Bitmap newBmp = new Bitmap(dstImg.Width, dstImg.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
             using (Graphics gfx = Graphics.FromImage(newBmp))
             {
                 gfx.DrawImage(dstImg, 0, 0);
             }
             //newBmp = dstImg;
-            for (int i=0; i<dstImg.Width; i++)
+            */
+            Bitmap srcImage = new Bitmap(pictureBox1.Image);
+            Bitmap dstImage = new Bitmap(pictureBox2.Image);
+            for (int i = 0; i<dstImage.Width; i++)
             {
-                for(int j=0; j<dstImg.Height; j++)
+                for(int j = 0; j<dstImage.Height; j++)
                 {
-                    System.Drawing.Color srcColor = srcImg.GetPixel(i, j);
-                    System.Drawing.Color dstColor = dstImg.GetPixel(i,j);
-                    if(dstColor != Color.Black)
+                    System.Drawing.Color srcColor = srcImg.GetPixel(i+blobCor.X, j+blobCor.Y);
+                    System.Drawing.Color dstColor = dstImg.GetPixel(i, j);
+                    if(!(dstColor.R>=0 && dstColor.R<=10 && dstColor.G >= 0 && dstColor.G <= 10 && dstColor.B >= 0 && dstColor.B <= 10))
                     {
-                        newBmp.SetPixel(i, j, srcColor);
+                        dstImage.SetPixel(i, j, System.Drawing.Color.FromArgb(255, srcColor.R, srcColor.G, srcColor.B));
                     }
-                    
                 }
             }
-            dstImg = newBmp;
-            pictureBox2.Image = newBmp;
-            */
+            dstImg = dstImage;
+            pictureBox2.Image = dstImage;
+           
+            /*
             Bitmap srcImage = new Bitmap(pictureBox1.Image);
             Bitmap dstImage = new Bitmap(pictureBox2.Image);
             var srcrect = new Rectangle(0, 0, srcImage.Width, srcImage.Height);
@@ -733,7 +722,7 @@ namespace Image_Processing_Lab_Clone
                 () =>
                 {
                     //lower-left
-                    Process1(srcbuffer, dstbuffer, 0, 0, srcdata.Height / 2, dstdata.Height / 2, srcdata.Width / 2, dstdata.Width / 2, srcdata.Height, srcdata.Height,srcdata.Width, dstdata.Width, srcdepth, dstdepth);
+                    Process1(srcbuffer, dstbuffer, 0, 0, srcdata.Height / 2, dstdata.Height / 2, srcdata.Width / 2, dstdata.Width / 2, srcdata.Height, srcdata.Height, srcdata.Width, dstdata.Width, srcdepth, dstdepth);
                 },
                 () =>
                 {
@@ -750,44 +739,33 @@ namespace Image_Processing_Lab_Clone
             dstImage.UnlockBits(dstdata);
             pictureBox2.Image = dstImage;
             dstImg = dstImage;
-        }
 
-        void Process1(byte[] srcbuffer, byte[] dstbuffer, int srcx, int dstx, int srcy, int dsty, int srcendx, int dstendx, int srcendy, int dstendy, int srcwidth, int dstwidth, int srcdepth, int dstdepth)
-        {
-            
-            for (int i = srcx; i < srcendx; i++)
+
+            void Process1(byte[] srbuffer, byte[] dsbuffer, int srcx, int dstx, int srcy, int dsty, int srcendx, int dstendx, int srcendy, int dstendy, int srcwidth, int dstwidth, int srdepth, int dsdepth)
             {
-                for (int j = srcy; j < srcendy; j++)
-                {
-                    var offset = ((j * srcwidth) + i) * srcdepth;
-                    var srcB = srcbuffer[offset + 0];
-                    var srcG = srcbuffer[offset + 1];
-                    var srcR = srcbuffer[offset + 2];
-                    var dstB = dstbuffer[offset + 0];
-                    var dstG = dstbuffer[offset + 1];
-                    var dstR = dstbuffer[offset + 2];
-                    if(!(dstR>=0 && dstR<=10 && dstG >= 0 && dstG <= 10 && dstB >= 0 && dstB <= 10))
-                    {
-                        dstbuffer[offset + 0] = srcbuffer[offset + 0];
-                        dstbuffer[offset + 1] = srcbuffer[offset + 1];
-                        dstbuffer[offset + 2] = srcbuffer[offset + 2];
-                    }
-                    /*
-                    var a = Math.Max(R, Math.Max(B, G));
-                    var b = Math.Min(R, Math.Min(B, G));
-                    if (!(((R > 95) && (G > 40) && (B > 20) && ((a - b) > 15) && (Math.Abs(R - G) > 15) && (R > G) && (R > B)) || ((R > 220) && (G > 210) && (B > 170) && ((a - b) > 15) && (Math.Abs(R - G) > 15) && (R > G) && (G > B))))
-                    {
-                        buffer[offset + 0] = buffer[offset + 1] = buffer[offset + 2] = 0;
-                    }
-                    else
-                    {
-                        buffer[offset + 0] = buffer[offset + 1] = buffer[offset + 2] = 255;
-                    }
-                    */
 
+                for (int i = srcx; i < srcendx; i++)
+                {
+                    for (int j = srcy; j < srcendy; j++)
+                    {
+                        var offset = ((j * srcwidth) + i) * srdepth;
+                        var srcB = srbuffer[offset + 0];
+                        var srcG = srbuffer[offset + 1];
+                        var srcR = srbuffer[offset + 2];
+                        var dstB = dsbuffer[offset + 0];
+                        var dstG = dsbuffer[offset + 1];
+                        var dstR = dsbuffer[offset + 2];
+                        if (!(dstR >= 0 && dstR <= 10 && dstG >= 0 && dstG <= 10 && dstB >= 0 && dstB <= 10))
+                        {
+                            dsbuffer[offset + 0] = srbuffer[offset + 0];
+                            dsbuffer[offset + 1] = srbuffer[offset + 1];
+                            dsbuffer[offset + 2] = srbuffer[offset + 2];
+                        }
+                    }
                 }
+
             }
-            
+            */
         }
 
         private void fillHolesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -803,7 +781,7 @@ namespace Image_Processing_Lab_Clone
                 pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
                 dstImg = filter.Apply(dstImg);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 MessageBox.Show("Convert to Binary Image");
             }
@@ -838,9 +816,47 @@ namespace Image_Processing_Lab_Clone
                 pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
                 dstImg = filter.Apply(dstImg);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 MessageBox.Show("Apply Grayscale");
+            }
+        }
+
+        private void sourceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            srcImg = resize(srcImg, new Size(200, 200));
+            pictureBox1.Image = srcImg;
+        }
+
+        private void destinationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dstImg = resize(dstImg, new Size(200, 200));
+            pictureBox2.Image = dstImg;
+        }
+
+        private void bothToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            srcImg = resize(srcImg, new Size(200, 200));
+            dstImg = resize(dstImg, new Size(200, 200));
+            pictureBox1.Image = srcImg;
+            pictureBox2.Image = dstImg;
+        }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox2.Image = pictureBox1.Image;
+        }
+
+        private void resizeAndSaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap image = new Bitmap(pictureBox2.Image);
+            image = resize(image, new Size(200, 200));
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "Jpg (*.jpg) | *.jpg";
+            saveDialog.DefaultExt = "Jpg";
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                image.Save(saveDialog.FileName);
             }
         }
 

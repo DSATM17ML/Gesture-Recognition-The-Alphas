@@ -45,6 +45,7 @@
             this.detectSkinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mergeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.binarizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.morphologyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reApplyToolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,6 +64,8 @@
             this.reApplyToolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.blobCounterBaseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.reApplyToolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.fillHolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reApplyToolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.edgeDetectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.homogenitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reApplyToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,9 +79,11 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.fillHolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reApplyToolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
-            this.binarizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.destinationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bothToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resizeAndSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -142,7 +147,8 @@
             this.detectSkinToolStripMenuItem,
             this.resizeToolStripMenuItem,
             this.mergeToolStripMenuItem,
-            this.binarizationToolStripMenuItem});
+            this.binarizationToolStripMenuItem,
+            this.copyToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -207,6 +213,11 @@
             // 
             // resizeToolStripMenuItem
             // 
+            this.resizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sourceToolStripMenuItem,
+            this.destinationToolStripMenuItem,
+            this.bothToolStripMenuItem,
+            this.resizeAndSaveToolStripMenuItem});
             this.resizeToolStripMenuItem.Name = "resizeToolStripMenuItem";
             this.resizeToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.resizeToolStripMenuItem.Text = "Resize";
@@ -218,6 +229,13 @@
             this.mergeToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.mergeToolStripMenuItem.Text = "Merge";
             this.mergeToolStripMenuItem.Click += new System.EventHandler(this.mergeToolStripMenuItem_Click);
+            // 
+            // binarizationToolStripMenuItem
+            // 
+            this.binarizationToolStripMenuItem.Name = "binarizationToolStripMenuItem";
+            this.binarizationToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.binarizationToolStripMenuItem.Text = "Binarization";
+            this.binarizationToolStripMenuItem.Click += new System.EventHandler(this.binarizationToolStripMenuItem_Click);
             // 
             // morphologyToolStripMenuItem
             // 
@@ -371,6 +389,22 @@
             this.reApplyToolStripMenuItem10.Text = "Re-Apply";
             this.reApplyToolStripMenuItem10.Click += new System.EventHandler(this.reApplyToolStripMenuItem10_Click);
             // 
+            // fillHolesToolStripMenuItem
+            // 
+            this.fillHolesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reApplyToolStripMenuItem11});
+            this.fillHolesToolStripMenuItem.Name = "fillHolesToolStripMenuItem";
+            this.fillHolesToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
+            this.fillHolesToolStripMenuItem.Text = "Fill Holes";
+            this.fillHolesToolStripMenuItem.Click += new System.EventHandler(this.fillHolesToolStripMenuItem_Click);
+            // 
+            // reApplyToolStripMenuItem11
+            // 
+            this.reApplyToolStripMenuItem11.Name = "reApplyToolStripMenuItem11";
+            this.reApplyToolStripMenuItem11.Size = new System.Drawing.Size(146, 26);
+            this.reApplyToolStripMenuItem11.Text = "Re-Apply";
+            this.reApplyToolStripMenuItem11.Click += new System.EventHandler(this.reApplyToolStripMenuItem11_Click);
+            // 
             // edgeDetectionToolStripMenuItem
             // 
             this.edgeDetectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -489,28 +523,40 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
-            // fillHolesToolStripMenuItem
+            // sourceToolStripMenuItem
             // 
-            this.fillHolesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reApplyToolStripMenuItem11});
-            this.fillHolesToolStripMenuItem.Name = "fillHolesToolStripMenuItem";
-            this.fillHolesToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
-            this.fillHolesToolStripMenuItem.Text = "Fill Holes";
-            this.fillHolesToolStripMenuItem.Click += new System.EventHandler(this.fillHolesToolStripMenuItem_Click);
+            this.sourceToolStripMenuItem.Name = "sourceToolStripMenuItem";
+            this.sourceToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.sourceToolStripMenuItem.Text = "Source";
+            this.sourceToolStripMenuItem.Click += new System.EventHandler(this.sourceToolStripMenuItem_Click);
             // 
-            // reApplyToolStripMenuItem11
+            // destinationToolStripMenuItem
             // 
-            this.reApplyToolStripMenuItem11.Name = "reApplyToolStripMenuItem11";
-            this.reApplyToolStripMenuItem11.Size = new System.Drawing.Size(181, 26);
-            this.reApplyToolStripMenuItem11.Text = "Re-Apply";
-            this.reApplyToolStripMenuItem11.Click += new System.EventHandler(this.reApplyToolStripMenuItem11_Click);
+            this.destinationToolStripMenuItem.Name = "destinationToolStripMenuItem";
+            this.destinationToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.destinationToolStripMenuItem.Text = "Destination";
+            this.destinationToolStripMenuItem.Click += new System.EventHandler(this.destinationToolStripMenuItem_Click);
             // 
-            // binarizationToolStripMenuItem
+            // bothToolStripMenuItem
             // 
-            this.binarizationToolStripMenuItem.Name = "binarizationToolStripMenuItem";
-            this.binarizationToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
-            this.binarizationToolStripMenuItem.Text = "Binarization";
-            this.binarizationToolStripMenuItem.Click += new System.EventHandler(this.binarizationToolStripMenuItem_Click);
+            this.bothToolStripMenuItem.Name = "bothToolStripMenuItem";
+            this.bothToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.bothToolStripMenuItem.Text = "Both";
+            this.bothToolStripMenuItem.Click += new System.EventHandler(this.bothToolStripMenuItem_Click);
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
+            // resizeAndSaveToolStripMenuItem
+            // 
+            this.resizeAndSaveToolStripMenuItem.Name = "resizeAndSaveToolStripMenuItem";
+            this.resizeAndSaveToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
+            this.resizeAndSaveToolStripMenuItem.Text = "Resize and Save";
+            this.resizeAndSaveToolStripMenuItem.Click += new System.EventHandler(this.resizeAndSaveToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -584,6 +630,11 @@
         private System.Windows.Forms.ToolStripMenuItem fillHolesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reApplyToolStripMenuItem11;
         private System.Windows.Forms.ToolStripMenuItem binarizationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sourceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem destinationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bothToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resizeAndSaveToolStripMenuItem;
     }
 }
 
