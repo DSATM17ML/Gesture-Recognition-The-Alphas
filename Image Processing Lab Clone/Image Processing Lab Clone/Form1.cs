@@ -475,6 +475,7 @@ namespace Image_Processing_Lab_Clone
             ExtractBiggestBlob filter = new ExtractBiggestBlob();
             pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
             dstImg = filter.Apply(dstImg);
+            //dstImg.BlobPosition;
         }
 
         private void homogenitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -678,6 +679,7 @@ namespace Image_Processing_Lab_Clone
             filter.ApplyInPlace((Bitmap)pictureBox2.Image);
             filter.ApplyInPlace(dstImg);
             */
+            /*
             Bitmap newBmp = new Bitmap(dstImg.Width, dstImg.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
 
             using (Graphics gfx = Graphics.FromImage(newBmp))
@@ -700,6 +702,92 @@ namespace Image_Processing_Lab_Clone
             }
             dstImg = newBmp;
             pictureBox2.Image = newBmp;
+            */
+            Bitmap srcImage = new Bitmap(pictureBox1.Image);
+            Bitmap dstImage = new Bitmap(pictureBox2.Image);
+            var srcrect = new Rectangle(0, 0, srcImage.Width, srcImage.Height);
+            var dstrect = new Rectangle(0, 0, dstImage.Width, dstImage.Height);
+            var srcdata = srcImage.LockBits(srcrect, ImageLockMode.ReadWrite, srcImage.PixelFormat);
+            var dstdata = dstImage.LockBits(dstrect, ImageLockMode.ReadWrite, dstImage.PixelFormat);
+            var srcdepth = Bitmap.GetPixelFormatSize(srcdata.PixelFormat) / 8;
+            var dstdepth = Bitmap.GetPixelFormatSize(dstdata.PixelFormat) / 8;
+            //bytes per pixel
+            var srcbuffer = new byte[srcdata.Width * srcdata.Height * srcdepth];
+            var dstbuffer = new byte[dstdata.Width * dstdata.Height * dstdepth];
+
+            //copy pixels to buffer
+            Marshal.Copy(srcdata.Scan0, srcbuffer, 0, srcbuffer.Length);
+            Marshal.Copy(dstdata.Scan0, dstbuffer, 0, dstbuffer.Length);
+
+            System.Threading.Tasks.Parallel.Invoke(
+                () =>
+                {
+                    //upper-left
+                    Process1(srcbuffer, dstbuffer, 0, 0, 0, 0, srcdata.Width / 2, dstdata.Width / 2, srcdata.Height / 2, dstdata.Height / 2, srcdata.Width, dstdata.Width, srcdepth, dstdepth);
+                },
+                () =>
+                {
+                    //upper-right
+                    Process1(srcbuffer, dstbuffer, srcdata.Width / 2, dstdata.Width / 2, 0, 0, srcdata.Width, dstdata.Width, srcdata.Height / 2, dstdata.Height / 2, srcdata.Width, dstdata.Width, srcdepth, dstdepth);
+                },
+                () =>
+                {
+                    //lower-left
+                    Process1(srcbuffer, dstbuffer, 0, 0, srcdata.Height / 2, dstdata.Height / 2, srcdata.Width / 2, dstdata.Width / 2, srcdata.Height, srcdata.Height,srcdata.Width, dstdata.Width, srcdepth, dstdepth);
+                },
+                () =>
+                {
+                    //lower-right
+                    Process1(srcbuffer, dstbuffer, srcdata.Width / 2, dstdata.Width / 2, srcdata.Height / 2, dstdata.Height / 2, srcdata.Width, dstdata.Width, srcdata.Height, dstdata.Height, srcdata.Width, dstdata.Width, srcdepth, dstdepth);
+                }
+            );
+
+            //Copy the buffer back to image
+            Marshal.Copy(srcbuffer, 0, srcdata.Scan0, srcbuffer.Length);
+            Marshal.Copy(dstbuffer, 0, dstdata.Scan0, dstbuffer.Length);
+
+            srcImage.UnlockBits(srcdata);
+            dstImage.UnlockBits(dstdata);
+            pictureBox2.Image = dstImage;
+            dstImg = dstImage;
+        }
+
+        void Process1(byte[] srcbuffer, byte[] dstbuffer, int srcx, int dstx, int srcy, int dsty, int srcendx, int dstendx, int srcendy, int dstendy, int srcwidth, int dstwidth, int srcdepth, int dstdepth)
+        {
+            
+            for (int i = srcx; i < srcendx; i++)
+            {
+                for (int j = srcy; j < srcendy; j++)
+                {
+                    var offset = ((j * srcwidth) + i) * srcdepth;
+                    var srcB = srcbuffer[offset + 0];
+                    var srcG = srcbuffer[offset + 1];
+                    var srcR = srcbuffer[offset + 2];
+                    var dstB = dstbuffer[offset + 0];
+                    var dstG = dstbuffer[offset + 1];
+                    var dstR = dstbuffer[offset + 2];
+                    if(!(dstR>=0 && dstR<=10 && dstG >= 0 && dstG <= 10 && dstB >= 0 && dstB <= 10))
+                    {
+                        dstbuffer[offset + 0] = srcbuffer[offset + 0];
+                        dstbuffer[offset + 1] = srcbuffer[offset + 1];
+                        dstbuffer[offset + 2] = srcbuffer[offset + 2];
+                    }
+                    /*
+                    var a = Math.Max(R, Math.Max(B, G));
+                    var b = Math.Min(R, Math.Min(B, G));
+                    if (!(((R > 95) && (G > 40) && (B > 20) && ((a - b) > 15) && (Math.Abs(R - G) > 15) && (R > G) && (R > B)) || ((R > 220) && (G > 210) && (B > 170) && ((a - b) > 15) && (Math.Abs(R - G) > 15) && (R > G) && (G > B))))
+                    {
+                        buffer[offset + 0] = buffer[offset + 1] = buffer[offset + 2] = 0;
+                    }
+                    else
+                    {
+                        buffer[offset + 0] = buffer[offset + 1] = buffer[offset + 2] = 255;
+                    }
+                    */
+
+                }
+            }
+            
         }
 
         private void fillHolesToolStripMenuItem_Click(object sender, EventArgs e)
