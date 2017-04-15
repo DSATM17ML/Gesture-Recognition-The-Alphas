@@ -15,6 +15,8 @@ using Emgu.Util;
 using Emgu.CV.Structure;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
+using Accord.Imaging;
+using AForge.Imaging.Textures;
 
 namespace Image_Processing_Lab_Clone
 {
@@ -31,23 +33,23 @@ namespace Image_Processing_Lab_Clone
             return (Bitmap)(new Bitmap(image, size));
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        public void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        public void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog openDialog = new OpenFileDialog();
             if (openDialog.ShowDialog() == DialogResult.OK)
             {
                 pictureBox1.Image = new Bitmap(openDialog.FileName);
-                Bitmap srcImg = new Bitmap(openDialog.FileName);
-                Bitmap dstImg = new Bitmap(openDialog.FileName);
+                srcImg = new Bitmap(openDialog.FileName);
+                dstImg = new Bitmap(openDialog.FileName);
             }
         }
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        public void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveDialog = new SaveFileDialog();
             saveDialog.Filter = "Image Files (*.jpg)|*.jpg";
@@ -72,21 +74,21 @@ namespace Image_Processing_Lab_Clone
         {
             HistogramEqualization histObject = new HistogramEqualization();
             pictureBox2.Image = histObject.Apply((Bitmap)pictureBox1.Image);
-            //histObject.Apply(dstImg);
+            dstImg = histObject.Apply(dstImg);
         }
 
         private void greyscaleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GrayscaleBT709 grayObject = new GrayscaleBT709();
             pictureBox2.Image = grayObject.Apply((Bitmap)pictureBox1.Image);
-            //dstImg = grayObject.Apply(dstImg);
+            dstImg = grayObject.Apply(dstImg);
         }
 
         private void levelOfCorrectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LevelsLinear levelObject = new LevelsLinear();
             pictureBox2.Image = levelObject.Apply((Bitmap)pictureBox1.Image);
-            //dstImg = levelObject.Apply(dstImg);
+            dstImg = levelObject.Apply(dstImg);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,21 +105,28 @@ namespace Image_Processing_Lab_Clone
         {
             Sepia threshObject = new Sepia();
             pictureBox2.Image = threshObject.Apply((Bitmap)pictureBox1.Image);
-            //threshObject.Apply(dstImg);
+            dstImg = threshObject.Apply(dstImg);
         }
 
         private void saturationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaturationCorrection satObject = new SaturationCorrection();
             pictureBox2.Image = satObject.Apply((Bitmap)pictureBox1.Image);
-            //satObject.Apply(dstImg);
+            dstImg = satObject.Apply(dstImg);
         }
 
         private void fourierTransformToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HueModifier thresheuObject = new HueModifier();
-            pictureBox2.Image = thresheuObject.Apply((Bitmap)pictureBox1.Image);
-            //thresheuObject.Apply(dstImg);
+            try
+            {
+                HueModifier thresheuObject = new HueModifier();
+                pictureBox2.Image = thresheuObject.Apply((Bitmap)pictureBox1.Image);
+                dstImg = thresheuObject.Apply(dstImg);
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Not Possible");
+            }
         }
 
         private void detectSkinToolStripMenuItem_Click(object sender, EventArgs e)
@@ -161,7 +170,7 @@ namespace Image_Processing_Lab_Clone
 
             sampleImage.UnlockBits(data);
             pictureBox2.Image = sampleImage;
-            //dstImg = sampleImage;
+            dstImg = sampleImage;
         }
 
         void Process(byte[] buffer, int x, int y, int endx, int endy, int width, int depth)
@@ -335,18 +344,30 @@ namespace Image_Processing_Lab_Clone
 
         private void openingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Opening filter = new Opening();
-            pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
-            //filter.Apply(dstImg);
+            try
+            {
+                Opening filter = new Opening();
+                pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
+                dstImg = filter.Apply(dstImg);
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Apply Grayscale");
+            }
         }
 
         private void closingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // create filter
-            Closing filter = new Closing();
-            // apply the filter
-            pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
-            //filter.Apply(dstImg);
+            try
+            {
+                Closing filter = new Closing();
+                pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
+                dstImg = filter.Apply(dstImg);
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Apply Grayscale");
+            }
         }
 
         private void loopToolStripMenuItem_Click(object sender, EventArgs e)
@@ -361,40 +382,63 @@ namespace Image_Processing_Lab_Clone
 
         private void dilationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //create filter
-            Dilatation filter = new Dilatation();
-            // apply the filter
-            pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
-            //filter.Apply(dstImg);
+            try
+            {
+                Dilatation filter = new Dilatation();
+                pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
+                dstImg = filter.Apply(dstImg);
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Apply Grayscale");
+            }
         }
 
         private void erosionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //create filter
-            Erosion filter = new Erosion();
-            // apply the filter
-            pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
-            //filter.Apply(dstImg);
+            try
+            {
+                Erosion filter = new Erosion();
+                pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
+                dstImg = filter.Apply(dstImg);
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Apply Grayscale");
+            }
         }
 
         private void topHatToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //create filter
-            TopHat filter = new TopHat();
-            // apply the filter
-            pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
-            //filter.Apply(dstImg);
+            try
+            {
+                //create filter
+                TopHat filter = new TopHat();
+                // apply the filter
+                pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
+                dstImg = filter.Apply(dstImg);
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Apply Grayscale");
+            }
 
         }
 
         private void bottomHatToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //create filter
-            BottomHat filter = new BottomHat();
-            // apply the filter
-            pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
-            //filter.Apply(dstImg);
-
+            try
+            {
+                //create filter
+                BottomHat filter = new BottomHat();
+                // apply the filter
+                pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
+                dstImg = filter.Apply(dstImg);
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Apply Grayscale");
+            }
         }
 
         private void loopToolStripMenuItem1_Click_1(object sender, EventArgs e)
@@ -403,17 +447,22 @@ namespace Image_Processing_Lab_Clone
             Erosion filter = new Erosion();
             // apply the filter
             pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
-            //filter.Apply(dstImg);
+            dstImg = filter.Apply(dstImg);
 
         }
 
         private void loopToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            //create filter
-            Dilatation filter = new Dilatation();
-            // apply the filter
-            pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
-            //filter.Apply(dstImg);
+            try
+            {
+                Dilatation filter = new Dilatation();
+                pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
+                dstImg = filter.Apply(dstImg);
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Apply Grayscale");
+            }
         }
 
         private void blobsFilteringToolStripMenuItem_Click(object sender, EventArgs e)
@@ -425,7 +474,7 @@ namespace Image_Processing_Lab_Clone
         {
             ExtractBiggestBlob filter = new ExtractBiggestBlob();
             pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
-            //filter.Apply(dstImg);
+            dstImg = filter.Apply(dstImg);
         }
 
         private void homogenitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -434,7 +483,7 @@ namespace Image_Processing_Lab_Clone
             pictureBox2.Image = grayObject.Apply((Bitmap)pictureBox1.Image);
             HomogenityEdgeDetector filter = new HomogenityEdgeDetector();
             pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
-            filter.Apply(dstImg);
+            dstImg = filter.Apply(dstImg);
         }
 
         private void differenceToolStripMenuItem_Click(object sender, EventArgs e)
@@ -443,7 +492,7 @@ namespace Image_Processing_Lab_Clone
             pictureBox2.Image = grayObject.Apply((Bitmap)pictureBox1.Image);
             DifferenceEdgeDetector filter = new DifferenceEdgeDetector();
             pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
-            filter.Apply(dstImg);
+            dstImg = filter.Apply(dstImg);
         }
 
         private void cobelToolStripMenuItem_Click(object sender, EventArgs e)
@@ -452,7 +501,7 @@ namespace Image_Processing_Lab_Clone
             pictureBox2.Image = grayObject.Apply((Bitmap)pictureBox1.Image);
             SobelEdgeDetector filter = new SobelEdgeDetector();
             pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
-            filter.Apply(dstImg);
+            dstImg = filter.Apply(dstImg);
         }
 
         private void cannyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -461,49 +510,42 @@ namespace Image_Processing_Lab_Clone
             pictureBox2.Image = grayObject.Apply((Bitmap)pictureBox1.Image);
             CannyEdgeDetector filter = new CannyEdgeDetector();
             pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
-            filter.Apply(dstImg);
+            dstImg = filter.Apply(dstImg);
         }
 
         private void reApplyToolStripMenuItem5_Click(object sender, EventArgs e)
         {
             GrayscaleBT709 filter = new GrayscaleBT709();
             pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
+            dstImg = filter.Apply(dstImg);
         }
 
         private void reApplyToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            GrayscaleBT709 grayObject = new GrayscaleBT709();
-            pictureBox2.Image = grayObject.Apply((Bitmap)pictureBox2.Image);
             HomogenityEdgeDetector filter = new HomogenityEdgeDetector();
             pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
-            filter.Apply(dstImg);
+            dstImg = filter.Apply(dstImg);
         }
 
         private void reApplyToolStripMenuItem4_Click(object sender, EventArgs e)
         {
-            GrayscaleBT709 grayObject = new GrayscaleBT709();
-            pictureBox2.Image = grayObject.Apply((Bitmap)pictureBox2.Image);
             DifferenceEdgeDetector filter = new DifferenceEdgeDetector();
             pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
-            filter.Apply(dstImg);
+            dstImg = filter.Apply(dstImg);
         }
 
         private void reApplyToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            GrayscaleBT709 grayObject = new GrayscaleBT709();
-            pictureBox2.Image = grayObject.Apply((Bitmap)pictureBox2.Image);
             SobelEdgeDetector filter = new SobelEdgeDetector();
             pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
-            filter.Apply(dstImg);
+            dstImg = filter.Apply(dstImg);
         }
 
         private void reApplyToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            GrayscaleBT709 grayObject = new GrayscaleBT709();
-            pictureBox2.Image = grayObject.Apply((Bitmap)pictureBox2.Image);
             CannyEdgeDetector filter = new CannyEdgeDetector();
             pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
-            filter.Apply(dstImg);
+            dstImg = filter.Apply(dstImg);
         }
 
         private void reApplyToolStripMenuItem6_Click(object sender, EventArgs e)
@@ -511,31 +553,35 @@ namespace Image_Processing_Lab_Clone
             Bitmap img = new Bitmap(pictureBox2.Image);
             Opening filter = new Opening();
             pictureBox2.Image = filter.Apply(img);
+            dstImg = filter.Apply(dstImg);
         }
 
         private void reApplyToolStripMenuItem7_Click(object sender, EventArgs e)
         {
             Closing filter = new Closing();
             pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
+            dstImg = filter.Apply(dstImg);
         }
 
         private void reApplyToolStripMenuItem8_Click(object sender, EventArgs e)
         {
             TopHat filter = new TopHat();
             pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
+            dstImg = filter.Apply(dstImg);
         }
 
         private void reApplyToolStripMenuItem9_Click(object sender, EventArgs e)
         {
             BottomHat filter = new BottomHat();
             pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
+            dstImg = filter.Apply(dstImg);
         }
 
         private void reApplyToolStripMenuItem6_Click_1(object sender, EventArgs e)
         {
             ExtractBiggestBlob filter = new ExtractBiggestBlob();
             pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
-            //filter.Apply(dstImg);
+            dstImg = filter.Apply(dstImg);
         }
 
         private void blobCounterBaseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -543,7 +589,7 @@ namespace Image_Processing_Lab_Clone
 
             ConnectedComponentsLabeling filter = new ConnectedComponentsLabeling();
             pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
-            //filter.Apply(dstImg);
+            dstImg = filter.Apply(dstImg);
         }
 
         private void reApplyToolStripMenuItem7_Click_1(object sender, EventArgs e)
@@ -551,7 +597,7 @@ namespace Image_Processing_Lab_Clone
 
             ConnectedComponentsLabeling filter = new ConnectedComponentsLabeling();
             pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
-            //filter.Apply(dstImg);
+            dstImg = filter.Apply(dstImg);
         }
 
         private void resizeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -568,11 +614,160 @@ namespace Image_Processing_Lab_Clone
             //image.Save(@"C:\Users\SAI SRUJAN\Documents\Visual Studio 2017\Projects\demo\demo\test\test.jpg");
         }
 
+        private void reApplyToolStripMenuItem9_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                Closing filter = new Closing();
+                pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
+                dstImg = filter.Apply(dstImg);
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Apply Grayscale");
+            }
+        }
+
+        private void blobCounterBaseToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            // create an instance of blob counter algorithm
+            BlobCounterBase bc = new BlobCounter();
+            // set filtering options
+            bc.FilterBlobs = true;
+            bc.MinWidth = 5;
+            bc.MinHeight = 5;
+            // set ordering options
+            bc.ObjectsOrder = ObjectsOrder.Size;
+            // process binary image
+            bc.ProcessImage((Bitmap)pictureBox1.Image);
+            Blob[] blobs = bc.GetObjectsInformation();
+            // extract the biggest blob
+            if (blobs.Length > 0)
+            {
+                bc.ExtractBlobsImage((Bitmap)pictureBox1.Image, blobs[0], true);
+            }
+        }
+
+        private void reApplyToolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+            // create an instance of blob counter algorithm
+            BlobCounterBase bc = new BlobCounter();
+            // set filtering options
+            bc.FilterBlobs = true;
+            bc.MinWidth = 100;
+            bc.MinHeight = 100;
+            // set ordering options
+            bc.ObjectsOrder = ObjectsOrder.Size;
+            // process binary image
+            bc.ProcessImage((Bitmap)pictureBox2.Image);
+            Blob[] blobs = bc.GetObjectsInformation();
+            // extract the biggest blob
+            if (blobs.Length > 0)
+            {
+                bc.ExtractBlobsImage((Bitmap)pictureBox2.Image, blobs[0], true);
+            }
+            dstImg = (Bitmap)pictureBox2.Image;
+        }
+
+        private void mergeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            /*TexturedMerge filter = new TexturedMerge(new TextileTexture());
+            filter.OverlayImage = new Bitmap(pictureBox2.Image.Width, pictureBox2.Image.Height);
+            PointedColorFloodFill fillFilter = new PointedColorFloodFill(Color.DarkKhaki);
+            fillFilter.ApplyInPlace(filter.OverlayImage);
+            filter.ApplyInPlace((Bitmap)pictureBox2.Image);
+            filter.ApplyInPlace(dstImg);
+            */
+            Bitmap newBmp = new Bitmap(dstImg.Width, dstImg.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+
+            using (Graphics gfx = Graphics.FromImage(newBmp))
+            {
+                gfx.DrawImage(dstImg, 0, 0);
+            }
+            //newBmp = dstImg;
+            for (int i=0; i<dstImg.Width; i++)
+            {
+                for(int j=0; j<dstImg.Height; j++)
+                {
+                    System.Drawing.Color srcColor = srcImg.GetPixel(i, j);
+                    System.Drawing.Color dstColor = dstImg.GetPixel(i,j);
+                    if(dstColor != Color.Black)
+                    {
+                        newBmp.SetPixel(i, j, srcColor);
+                    }
+                    
+                }
+            }
+            dstImg = newBmp;
+            pictureBox2.Image = newBmp;
+        }
+
+        private void fillHolesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // create and configure the filter
+                FillHoles filter = new FillHoles();
+                filter.MaxHoleHeight = 20;
+                filter.MaxHoleWidth = 20;
+                filter.CoupledSizeFiltering = false;
+                // apply the filter
+                pictureBox2.Image = filter.Apply((Bitmap)pictureBox1.Image);
+                dstImg = filter.Apply(dstImg);
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Convert to Binary Image");
+            }
+        }
+
+        private void reApplyToolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // create and configure the filter
+                FillHoles filter = new FillHoles();
+                filter.MaxHoleHeight = 20;
+                filter.MaxHoleWidth = 20;
+                filter.CoupledSizeFiltering = false;
+                // apply the filter
+                pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
+                dstImg = filter.Apply(dstImg);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Convert to Binary Image");
+            }
+        }
+
+        private void binarizationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // create and configure the filter
+                Threshold filter = new Threshold(10);
+                // apply the filter
+                pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
+                dstImg = filter.Apply(dstImg);
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Apply Grayscale");
+            }
+        }
+
         private void reApplyToolStripMenuItem8_Click_1(object sender, EventArgs e)
         {
-        //    Opening filter = new Opening();
-        //    filter.Apply(dstImg);
-        //    pictureBox2.Image = (dstImg);
+            try
+            {
+                Opening filter = new Opening();
+                pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
+                dstImg = filter.Apply(dstImg);
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Apply Grayscale");
+            }
         }
     }
 }

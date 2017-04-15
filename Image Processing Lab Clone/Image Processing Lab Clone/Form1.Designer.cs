@@ -43,9 +43,13 @@
             this.saturationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fourierTransformToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detectSkinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mergeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.morphologyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reApplyToolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.closingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reApplyToolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.erosionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loopToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.dilationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,6 +58,11 @@
             this.bottomHatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blobsFilteringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reApplyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reApplyToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.blobCounterBaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reApplyToolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.blobCounterBaseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.reApplyToolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.edgeDetectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.homogenitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reApplyToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,11 +76,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.reApplyToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.blobCounterBaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reApplyToolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
-            this.reApplyToolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.resizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fillHolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reApplyToolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.binarizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -133,7 +140,9 @@
             this.saturationToolStripMenuItem,
             this.fourierTransformToolStripMenuItem,
             this.detectSkinToolStripMenuItem,
-            this.resizeToolStripMenuItem});
+            this.resizeToolStripMenuItem,
+            this.mergeToolStripMenuItem,
+            this.binarizationToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -196,6 +205,20 @@
             this.detectSkinToolStripMenuItem.Text = "Detect Skin";
             this.detectSkinToolStripMenuItem.Click += new System.EventHandler(this.detectSkinToolStripMenuItem_Click);
             // 
+            // resizeToolStripMenuItem
+            // 
+            this.resizeToolStripMenuItem.Name = "resizeToolStripMenuItem";
+            this.resizeToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.resizeToolStripMenuItem.Text = "Resize";
+            this.resizeToolStripMenuItem.Click += new System.EventHandler(this.resizeToolStripMenuItem_Click);
+            // 
+            // mergeToolStripMenuItem
+            // 
+            this.mergeToolStripMenuItem.Name = "mergeToolStripMenuItem";
+            this.mergeToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.mergeToolStripMenuItem.Text = "Merge";
+            this.mergeToolStripMenuItem.Click += new System.EventHandler(this.mergeToolStripMenuItem_Click);
+            // 
             // morphologyToolStripMenuItem
             // 
             this.morphologyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -205,7 +228,8 @@
             this.dilationToolStripMenuItem,
             this.topHatToolStripMenuItem,
             this.bottomHatToolStripMenuItem,
-            this.blobsFilteringToolStripMenuItem});
+            this.blobsFilteringToolStripMenuItem,
+            this.fillHolesToolStripMenuItem});
             this.morphologyToolStripMenuItem.Name = "morphologyToolStripMenuItem";
             this.morphologyToolStripMenuItem.Size = new System.Drawing.Size(103, 24);
             this.morphologyToolStripMenuItem.Text = "Morphology";
@@ -219,19 +243,35 @@
             this.openingToolStripMenuItem.Text = "Opening";
             this.openingToolStripMenuItem.Click += new System.EventHandler(this.openingToolStripMenuItem_Click);
             // 
+            // reApplyToolStripMenuItem8
+            // 
+            this.reApplyToolStripMenuItem8.Name = "reApplyToolStripMenuItem8";
+            this.reApplyToolStripMenuItem8.Size = new System.Drawing.Size(146, 26);
+            this.reApplyToolStripMenuItem8.Text = "Re-Apply";
+            this.reApplyToolStripMenuItem8.Click += new System.EventHandler(this.reApplyToolStripMenuItem8_Click_1);
+            // 
             // closingToolStripMenuItem
             // 
+            this.closingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reApplyToolStripMenuItem9});
             this.closingToolStripMenuItem.Name = "closingToolStripMenuItem";
-            this.closingToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.closingToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.closingToolStripMenuItem.Text = "Closing";
             this.closingToolStripMenuItem.Click += new System.EventHandler(this.closingToolStripMenuItem_Click);
+            // 
+            // reApplyToolStripMenuItem9
+            // 
+            this.reApplyToolStripMenuItem9.Name = "reApplyToolStripMenuItem9";
+            this.reApplyToolStripMenuItem9.Size = new System.Drawing.Size(146, 26);
+            this.reApplyToolStripMenuItem9.Text = "Re-Apply";
+            this.reApplyToolStripMenuItem9.Click += new System.EventHandler(this.reApplyToolStripMenuItem9_Click_1);
             // 
             // erosionToolStripMenuItem
             // 
             this.erosionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loopToolStripMenuItem1});
             this.erosionToolStripMenuItem.Name = "erosionToolStripMenuItem";
-            this.erosionToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.erosionToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.erosionToolStripMenuItem.Text = "Erosion";
             this.erosionToolStripMenuItem.Click += new System.EventHandler(this.erosionToolStripMenuItem_Click);
             // 
@@ -247,7 +287,7 @@
             this.dilationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loopToolStripMenuItem});
             this.dilationToolStripMenuItem.Name = "dilationToolStripMenuItem";
-            this.dilationToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.dilationToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.dilationToolStripMenuItem.Text = "Dilatation";
             this.dilationToolStripMenuItem.Click += new System.EventHandler(this.dilationToolStripMenuItem_Click);
             // 
@@ -261,14 +301,14 @@
             // topHatToolStripMenuItem
             // 
             this.topHatToolStripMenuItem.Name = "topHatToolStripMenuItem";
-            this.topHatToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.topHatToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.topHatToolStripMenuItem.Text = "Top Hat";
             this.topHatToolStripMenuItem.Click += new System.EventHandler(this.topHatToolStripMenuItem_Click);
             // 
             // bottomHatToolStripMenuItem
             // 
             this.bottomHatToolStripMenuItem.Name = "bottomHatToolStripMenuItem";
-            this.bottomHatToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.bottomHatToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.bottomHatToolStripMenuItem.Text = "Bottom Hat";
             this.bottomHatToolStripMenuItem.Click += new System.EventHandler(this.bottomHatToolStripMenuItem_Click);
             // 
@@ -276,7 +316,8 @@
             // 
             this.blobsFilteringToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reApplyToolStripMenuItem,
-            this.blobCounterBaseToolStripMenuItem});
+            this.blobCounterBaseToolStripMenuItem,
+            this.blobCounterBaseToolStripMenuItem1});
             this.blobsFilteringToolStripMenuItem.Name = "blobsFilteringToolStripMenuItem";
             this.blobsFilteringToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.blobsFilteringToolStripMenuItem.Text = "Blob Processing";
@@ -287,9 +328,48 @@
             this.reApplyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reApplyToolStripMenuItem6});
             this.reApplyToolStripMenuItem.Name = "reApplyToolStripMenuItem";
-            this.reApplyToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.reApplyToolStripMenuItem.Size = new System.Drawing.Size(341, 26);
             this.reApplyToolStripMenuItem.Text = "Extract Biggest Blob";
             this.reApplyToolStripMenuItem.Click += new System.EventHandler(this.reApplyToolStripMenuItem_Click);
+            // 
+            // reApplyToolStripMenuItem6
+            // 
+            this.reApplyToolStripMenuItem6.Name = "reApplyToolStripMenuItem6";
+            this.reApplyToolStripMenuItem6.Size = new System.Drawing.Size(146, 26);
+            this.reApplyToolStripMenuItem6.Text = "Re-Apply";
+            this.reApplyToolStripMenuItem6.Click += new System.EventHandler(this.reApplyToolStripMenuItem6_Click_1);
+            // 
+            // blobCounterBaseToolStripMenuItem
+            // 
+            this.blobCounterBaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reApplyToolStripMenuItem7});
+            this.blobCounterBaseToolStripMenuItem.Name = "blobCounterBaseToolStripMenuItem";
+            this.blobCounterBaseToolStripMenuItem.Size = new System.Drawing.Size(341, 26);
+            this.blobCounterBaseToolStripMenuItem.Text = "Connected Component Labelling (CCL)";
+            this.blobCounterBaseToolStripMenuItem.Click += new System.EventHandler(this.blobCounterBaseToolStripMenuItem_Click);
+            // 
+            // reApplyToolStripMenuItem7
+            // 
+            this.reApplyToolStripMenuItem7.Name = "reApplyToolStripMenuItem7";
+            this.reApplyToolStripMenuItem7.Size = new System.Drawing.Size(146, 26);
+            this.reApplyToolStripMenuItem7.Text = "Re-Apply";
+            this.reApplyToolStripMenuItem7.Click += new System.EventHandler(this.reApplyToolStripMenuItem7_Click_1);
+            // 
+            // blobCounterBaseToolStripMenuItem1
+            // 
+            this.blobCounterBaseToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reApplyToolStripMenuItem10});
+            this.blobCounterBaseToolStripMenuItem1.Name = "blobCounterBaseToolStripMenuItem1";
+            this.blobCounterBaseToolStripMenuItem1.Size = new System.Drawing.Size(341, 26);
+            this.blobCounterBaseToolStripMenuItem1.Text = "Blob Counter Base";
+            this.blobCounterBaseToolStripMenuItem1.Click += new System.EventHandler(this.blobCounterBaseToolStripMenuItem1_Click);
+            // 
+            // reApplyToolStripMenuItem10
+            // 
+            this.reApplyToolStripMenuItem10.Name = "reApplyToolStripMenuItem10";
+            this.reApplyToolStripMenuItem10.Size = new System.Drawing.Size(146, 26);
+            this.reApplyToolStripMenuItem10.Text = "Re-Apply";
+            this.reApplyToolStripMenuItem10.Click += new System.EventHandler(this.reApplyToolStripMenuItem10_Click);
             // 
             // edgeDetectionToolStripMenuItem
             // 
@@ -409,42 +489,28 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
-            // reApplyToolStripMenuItem6
+            // fillHolesToolStripMenuItem
             // 
-            this.reApplyToolStripMenuItem6.Name = "reApplyToolStripMenuItem6";
-            this.reApplyToolStripMenuItem6.Size = new System.Drawing.Size(181, 26);
-            this.reApplyToolStripMenuItem6.Text = "Re-Apply";
-            this.reApplyToolStripMenuItem6.Click += new System.EventHandler(this.reApplyToolStripMenuItem6_Click_1);
+            this.fillHolesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reApplyToolStripMenuItem11});
+            this.fillHolesToolStripMenuItem.Name = "fillHolesToolStripMenuItem";
+            this.fillHolesToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
+            this.fillHolesToolStripMenuItem.Text = "Fill Holes";
+            this.fillHolesToolStripMenuItem.Click += new System.EventHandler(this.fillHolesToolStripMenuItem_Click);
             // 
-            // blobCounterBaseToolStripMenuItem
+            // reApplyToolStripMenuItem11
             // 
-            this.blobCounterBaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reApplyToolStripMenuItem7});
-            this.blobCounterBaseToolStripMenuItem.Name = "blobCounterBaseToolStripMenuItem";
-            this.blobCounterBaseToolStripMenuItem.Size = new System.Drawing.Size(341, 26);
-            this.blobCounterBaseToolStripMenuItem.Text = "Connected Component Labelling (CCL)";
-            this.blobCounterBaseToolStripMenuItem.Click += new System.EventHandler(this.blobCounterBaseToolStripMenuItem_Click);
+            this.reApplyToolStripMenuItem11.Name = "reApplyToolStripMenuItem11";
+            this.reApplyToolStripMenuItem11.Size = new System.Drawing.Size(181, 26);
+            this.reApplyToolStripMenuItem11.Text = "Re-Apply";
+            this.reApplyToolStripMenuItem11.Click += new System.EventHandler(this.reApplyToolStripMenuItem11_Click);
             // 
-            // reApplyToolStripMenuItem7
+            // binarizationToolStripMenuItem
             // 
-            this.reApplyToolStripMenuItem7.Name = "reApplyToolStripMenuItem7";
-            this.reApplyToolStripMenuItem7.Size = new System.Drawing.Size(181, 26);
-            this.reApplyToolStripMenuItem7.Text = "Re-Apply";
-            this.reApplyToolStripMenuItem7.Click += new System.EventHandler(this.reApplyToolStripMenuItem7_Click_1);
-            // 
-            // reApplyToolStripMenuItem8
-            // 
-            this.reApplyToolStripMenuItem8.Name = "reApplyToolStripMenuItem8";
-            this.reApplyToolStripMenuItem8.Size = new System.Drawing.Size(181, 26);
-            this.reApplyToolStripMenuItem8.Text = "Re-Apply";
-            this.reApplyToolStripMenuItem8.Click += new System.EventHandler(this.reApplyToolStripMenuItem8_Click_1);
-            // 
-            // resizeToolStripMenuItem
-            // 
-            this.resizeToolStripMenuItem.Name = "resizeToolStripMenuItem";
-            this.resizeToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
-            this.resizeToolStripMenuItem.Text = "Resize";
-            this.resizeToolStripMenuItem.Click += new System.EventHandler(this.resizeToolStripMenuItem_Click);
+            this.binarizationToolStripMenuItem.Name = "binarizationToolStripMenuItem";
+            this.binarizationToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.binarizationToolStripMenuItem.Text = "Binarization";
+            this.binarizationToolStripMenuItem.Click += new System.EventHandler(this.binarizationToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -511,6 +577,13 @@
         private System.Windows.Forms.ToolStripMenuItem reApplyToolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem reApplyToolStripMenuItem8;
         private System.Windows.Forms.ToolStripMenuItem resizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reApplyToolStripMenuItem9;
+        private System.Windows.Forms.ToolStripMenuItem blobCounterBaseToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem reApplyToolStripMenuItem10;
+        private System.Windows.Forms.ToolStripMenuItem mergeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fillHolesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reApplyToolStripMenuItem11;
+        private System.Windows.Forms.ToolStripMenuItem binarizationToolStripMenuItem;
     }
 }
 
