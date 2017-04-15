@@ -860,6 +860,60 @@ namespace Image_Processing_Lab_Clone
             }
         }
 
+        private void hOGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            List<double> edgeCount = new List<double>();
+            int pixelCount = 0;
+            Bitmap hoefImage = new Bitmap(pictureBox2.Image);
+            GrayscaleBT709 grayFilter = new GrayscaleBT709();
+            hoefImage = grayFilter.Apply((Bitmap)pictureBox2.Image);
+            CannyEdgeDetector cannyFilter = new CannyEdgeDetector();
+            hoefImage = cannyFilter.Apply(hoefImage);
+            pictureBox2.Image = hoefImage;
+            /* int rectHeight =5, rectWidth = 5;
+             for (int i =0; i< rectWidth; i++)
+             {
+                 for (int j=0; j<rectHeight; j++)
+                 {
+                     int offset=
+                 }
+             }
+             */
+            var imgarray = new System.Drawing.Image[25];
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    pixelCount++;
+                    var index = i * 5 + j;
+                    imgarray[index] = new Bitmap(40, 40);
+                    var graphics = Graphics.FromImage(imgarray[index]);
+                    graphics.DrawImage(hoefImage, new Rectangle(0, 0, 40, 40), new Rectangle(i * 40, j * 40, 40, 40), GraphicsUnit.Pixel);
+                    graphics.Dispose();
+                }
+            }
+            for(int n = 0; n< 25; n++)
+            {
+                int counter = 0;
+                Bitmap bufferImage = new Bitmap(imgarray[n]);
+                for (int i = 0; i < 40; i++)
+                {
+                    for(int j = 0; j < 40; j++)
+                    {
+                        System.Drawing.Color hoefColor = bufferImage.GetPixel(i, j);
+                        //if(hoefColor.R<=255 && hoefColor.R>=230 && hoefColor.G <= 255 && hoefColor.G >= 230 && hoefColor.B <= 255 && hoefColor.B >= 230)
+                        if(!(hoefColor.R== 0 && hoefColor.G == 0 && hoefColor.B == 0))
+                        {
+
+                            counter++;
+                        }
+                    }
+                }
+                edgeCount.Add(counter);
+            }
+        }
+
         private void reApplyToolStripMenuItem8_Click_1(object sender, EventArgs e)
         {
             try

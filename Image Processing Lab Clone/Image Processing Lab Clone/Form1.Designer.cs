@@ -84,6 +84,8 @@
             this.bothToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resizeAndSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.featureExtractionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hOGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -97,7 +99,8 @@
             this.fileToolStripMenuItem,
             this.optionsToolStripMenuItem,
             this.morphologyToolStripMenuItem,
-            this.edgeDetectionToolStripMenuItem});
+            this.edgeDetectionToolStripMenuItem,
+            this.featureExtractionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(814, 28);
@@ -558,6 +561,21 @@
             this.resizeAndSaveToolStripMenuItem.Text = "Resize and Save";
             this.resizeAndSaveToolStripMenuItem.Click += new System.EventHandler(this.resizeAndSaveToolStripMenuItem_Click);
             // 
+            // featureExtractionToolStripMenuItem
+            // 
+            this.featureExtractionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hOGToolStripMenuItem});
+            this.featureExtractionToolStripMenuItem.Name = "featureExtractionToolStripMenuItem";
+            this.featureExtractionToolStripMenuItem.Size = new System.Drawing.Size(140, 24);
+            this.featureExtractionToolStripMenuItem.Text = "Feature Extraction";
+            // 
+            // hOGToolStripMenuItem
+            // 
+            this.hOGToolStripMenuItem.Name = "hOGToolStripMenuItem";
+            this.hOGToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.hOGToolStripMenuItem.Text = "HOEF";
+            this.hOGToolStripMenuItem.Click += new System.EventHandler(this.hOGToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -635,6 +653,8 @@
         private System.Windows.Forms.ToolStripMenuItem bothToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resizeAndSaveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem featureExtractionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hOGToolStripMenuItem;
     }
 }
 
