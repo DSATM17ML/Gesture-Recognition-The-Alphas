@@ -17,6 +17,7 @@ using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using Accord.Imaging;
 using AForge.Imaging.Textures;
+using System.IO;
 
 namespace Image_Processing_Lab_Clone
 {
