@@ -17,12 +17,19 @@ using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using Accord.Imaging;
 using AForge.Imaging.Textures;
+using Accord.Statistics.Visualizations;
+using System.IO;
+using AForge.Controls;
+using SVM;
+ 
 
 namespace Image_Processing_Lab_Clone
 {
     public partial class Form1 : Form
     {
         public Bitmap srcImg,dstImg;
+        public string path = @"C:\Users\Rahul\Documents\Visual Studio 2015\Projects\car\car\front of car";
+        public IntPoint blob; 
         public Form1()
         {
             InitializeComponent();
@@ -582,6 +589,7 @@ namespace Image_Processing_Lab_Clone
             ExtractBiggestBlob filter = new ExtractBiggestBlob();
             pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
             dstImg = filter.Apply(dstImg);
+            blob = filter.BlobPosition;
         }
 
         private void blobCounterBaseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -671,35 +679,28 @@ namespace Image_Processing_Lab_Clone
 
         private void mergeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /*TexturedMerge filter = new TexturedMerge(new TextileTexture());
-            filter.OverlayImage = new Bitmap(pictureBox2.Image.Width, pictureBox2.Image.Height);
-            PointedColorFloodFill fillFilter = new PointedColorFloodFill(Color.DarkKhaki);
-            fillFilter.ApplyInPlace(filter.OverlayImage);
-            filter.ApplyInPlace((Bitmap)pictureBox2.Image);
-            filter.ApplyInPlace(dstImg);
-            */
             Bitmap newBmp = new Bitmap(dstImg.Width, dstImg.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-
             using (Graphics gfx = Graphics.FromImage(newBmp))
             {
                 gfx.DrawImage(dstImg, 0, 0);
             }
             //newBmp = dstImg;
-            for (int i=0; i<dstImg.Width; i++)
+            for (int i =  0; i < dstImg.Width; i++)
             {
-                for(int j=0; j<dstImg.Height; j++)
+                for (int j = 0;  j < dstImg.Height; j++)
                 {
-                    System.Drawing.Color srcColor = srcImg.GetPixel(i, j);
-                    System.Drawing.Color dstColor = dstImg.GetPixel(i,j);
-                    if(dstColor != Color.Black)
+                    System.Drawing.Color srcColor = srcImg.GetPixel(i+blob.X, j+blob.Y);
+                    System.Drawing.Color dstColor = dstImg.GetPixel(i, j);
+                    if (!(dstColor.R >= 0 && dstColor.R <= 10 && dstColor.G >= 0 && dstColor.G <= 10 && dstColor.B >= 0 && dstColor.B <= 10))
                     {
                         newBmp.SetPixel(i, j, srcColor);
                     }
-                    
+
                 }
             }
             dstImg = newBmp;
             pictureBox2.Image = newBmp;
+
         }
 
         private void fillHolesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -756,7 +757,192 @@ namespace Image_Processing_Lab_Clone
             }
         }
 
-        private void reApplyToolStripMenuItem8_Click_1(object sender, EventArgs e)
+        private void splitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var imgarray = new System.Drawing.Image[9];
+            var img = System.Drawing.Image.FromFile("media\\a.png");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    var index = i * 3 + j;
+                    imgarray[index] = new Bitmap(104, 104);
+                    var graphics = Graphics.FromImage(imgarray[index]);
+                    graphics.DrawImage(img, new Rectangle(0, 0, 104, 104), new Rectangle(i * 104, j * 104, 104, 104), GraphicsUnit.Pixel);
+                    graphics.Dispose();
+                }
+            }
+        }
+
+        private void resizeAndSaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap src = new Bitmap(pictureBox1.Image);
+            Bitmap res = new Bitmap(pictureBox2.Image);
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            src = resize(src, new Size(200, 200));
+            res = resize(res, new Size(200, 200));
+            pictureBox1.Image = src;
+            pictureBox2.Image = res;
+        }
+
+        private void hOEFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GrayscaleBT709 filter = new GrayscaleBT709();
+            pictureBox2.Image = filter.Apply((Bitmap)pictureBox2.Image);
+            dstImg = filter.Apply(dstImg);
+            try
+            {
+                Dilatation filter1 = new Dilatation();
+                pictureBox2.Image = filter1.Apply((Bitmap)pictureBox2.Image);
+                dstImg = filter1.Apply(dstImg);
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Apply Grayscale");
+            }
+
+            ExtractBiggestBlob filter2 = new ExtractBiggestBlob();
+            pictureBox2.Image = filter2.Apply((Bitmap)pictureBox2.Image);
+            dstImg = filter2.Apply(dstImg);
+            blob = filter2.BlobPosition;
+            Bitmap newBmp = new Bitmap(dstImg.Width, dstImg.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+            using (Graphics gfx = Graphics.FromImage(newBmp))
+            {
+                gfx.DrawImage(dstImg, 0, 0);
+            }
+            //newBmp = dstImg;
+            for (int i = 0; i < dstImg.Width; i++)
+            {
+                for (int j = 0; j < dstImg.Height; j++)
+                {
+                    System.Drawing.Color srcColor = srcImg.GetPixel(i + blob.X, j + blob.Y);
+                    System.Drawing.Color dstColor = dstImg.GetPixel(i, j);
+                    if (!(dstColor.R >= 0 && dstColor.R <= 10 && dstColor.G >= 0 && dstColor.G <= 10 && dstColor.B >= 0 && dstColor.B <= 10))
+                    {
+                        newBmp.SetPixel(i, j, srcColor);
+                    }
+
+                }
+            }
+            dstImg = newBmp;
+            pictureBox2.Image = newBmp;
+        }
+
+        private void edgeDetectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sVMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Problem train = Problem.Read(@"E:\AI.txt");
+            Problem test = Problem.Read(@"E:\test.txt");
+
+            Parameter parameters = new Parameter();
+
+            double C;
+            double Gamma;
+
+            parameters.C = 32; parameters.Gamma = 8;
+            Model model = Training.Train(train, parameters);
+            Prediction.Predict(test, @"E:\result.txt", model, false);
+        }
+    
+
+        private void hogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<double> edgeCount = new List<double>();
+            List<double> ratio = new List<double>();
+            int pixelCount = 0;
+            
+            Bitmap hoefImage = new Bitmap(pictureBox2.Image);
+            GrayscaleBT709 grayFilter = new GrayscaleBT709();
+            hoefImage = grayFilter.Apply((Bitmap)pictureBox2.Image);
+            CannyEdgeDetector cannyFilter = new CannyEdgeDetector(0,0,1.4);
+            hoefImage = cannyFilter.Apply(hoefImage);
+            pictureBox2.Image = hoefImage;
+            /* int rectHeight =5, rectWidth = 5;
+             for (int i =0; i< rectWidth; i++)
+             {
+                 for (int j=0; j<rectHeight; j++)
+                 {
+                     int offset=
+                 }
+             }
+             */
+            var imgarray = new System.Drawing.Image[36];
+            for (int i = 0; i < 6; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    pixelCount++;
+                    var index = i * 6 + j;
+                    imgarray[index] = new Bitmap(40, 40);
+                    var graphics = Graphics.FromImage(imgarray[index]);
+                    graphics.DrawImage(hoefImage, new Rectangle(0, 0, 40, 40), new Rectangle(i * 40, j * 40, 40, 40), GraphicsUnit.Pixel);
+                    graphics.Dispose();
+                }
+            }
+            for (int n = 0; n < 36; n++)
+            {
+                int counter = 0;
+                Bitmap bufferImage = new Bitmap(imgarray[n]);
+                for (int i = 0; i < 40; i++)
+                {
+                    for (int j = 0; j < 40; j++)
+                    {
+                        System.Drawing.Color hoefColor = bufferImage.GetPixel(i, j);
+                        //if(hoefColor.R<=255 && hoefColor.R>=230 && hoefColor.G <= 255 && hoefColor.G >= 230 && hoefColor.B <= 255 && hoefColor.B >= 230)
+                        if (!(hoefColor.R == 0 && hoefColor.G == 0 && hoefColor.B == 0))
+                        {
+                             counter++;
+                        }
+                    }
+                }
+                edgeCount.Add(counter);
+
+                // create array with histogram values
+                //int[] histogramValues = new int[] { 3, 8, 53, 57, 79, 69, ... };
+                // set values to histogram control
+                //Histogram.Values = histogramValues;
+                // ImageStatistics stat = new ImageStatistics(hoefImage);
+                // get red channel's histogram
+                //Histogram gray = stat.Gray;
+                //ExcelFileWriter<int> myExcel = new ExcelWrite();
+                // myExcel.WriteDateToExcel(@"C:\USER\SAI SRUJAN\Desktop\gesture.xlsx", edgeCount, "A1", "D1");
+
+            }
+            double Total = edgeCount.Sum();
+            foreach (double x in edgeCount)
+            {
+                
+               var a = x / Total;
+                ratio.Add(a);
+
+            }
+            
+            FileStream fs = new FileStream(@"E:\AI.txt", FileMode.Append, FileAccess.Write);
+            StreamWriter sw = new StreamWriter(fs);
+            for(int i = 0; i < ratio.Count; ++i)
+            {
+                sw.Write(i + ":" + ratio[i].ToString() + " ");
+                sw.WriteLine();
+            }
+            
+
+            sw.Close();
+            fs.Close();
+
+           /* ImageStatistics stat1 = new ImageStatistics(hoefImage);
+            // get green channel's histogram
+            Histogram green = stat.Green;
+            ImageStatistics stat2 = new ImageStatistics(hoefImage);
+            // get blue channel's histogram
+            Histogram blue = stat.Blue;*/
+        }
+    }
+
+       /* private void reApplyToolStripMenuItem8_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -769,5 +955,5 @@ namespace Image_Processing_Lab_Clone
                 System.Windows.Forms.MessageBox.Show("Apply Grayscale");
             }
         }
-    }
+    }*/
 }
