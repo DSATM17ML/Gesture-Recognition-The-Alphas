@@ -46,9 +46,12 @@
             this.resizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mergeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.binarizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+<<<<<<< HEAD
             this.splitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sVMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+=======
+>>>>>>> a50649d2cfc743a6122c5b316e9d364e9e508483
             this.morphologyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reApplyToolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,9 +86,19 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+<<<<<<< HEAD
             this.resizeOnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.singleFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.multipleFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+=======
+            this.sourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.destinationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bothToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resizeAndSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.featureExtractionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hOGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+>>>>>>> a50649d2cfc743a6122c5b316e9d364e9e508483
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -100,7 +113,11 @@
             this.optionsToolStripMenuItem,
             this.morphologyToolStripMenuItem,
             this.edgeDetectionToolStripMenuItem,
+<<<<<<< HEAD
             this.hOEFToolStripMenuItem});
+=======
+            this.featureExtractionToolStripMenuItem});
+>>>>>>> a50649d2cfc743a6122c5b316e9d364e9e508483
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -152,9 +169,13 @@
             this.resizeToolStripMenuItem,
             this.mergeToolStripMenuItem,
             this.binarizationToolStripMenuItem,
+<<<<<<< HEAD
             this.splitToolStripMenuItem,
             this.hogToolStripMenuItem,
             this.sVMToolStripMenuItem});
+=======
+            this.copyToolStripMenuItem});
+>>>>>>> a50649d2cfc743a6122c5b316e9d364e9e508483
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -220,7 +241,14 @@
             // resizeToolStripMenuItem
             // 
             this.resizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+<<<<<<< HEAD
             this.resizeOnlyToolStripMenuItem});
+=======
+            this.sourceToolStripMenuItem,
+            this.destinationToolStripMenuItem,
+            this.bothToolStripMenuItem,
+            this.resizeAndSaveToolStripMenuItem});
+>>>>>>> a50649d2cfc743a6122c5b316e9d364e9e508483
             this.resizeToolStripMenuItem.Name = "resizeToolStripMenuItem";
             this.resizeToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.resizeToolStripMenuItem.Text = "Resize";
@@ -240,6 +268,7 @@
             this.binarizationToolStripMenuItem.Text = "Binarization";
             this.binarizationToolStripMenuItem.Click += new System.EventHandler(this.binarizationToolStripMenuItem_Click);
             // 
+<<<<<<< HEAD
             // splitToolStripMenuItem
             // 
             this.splitToolStripMenuItem.Name = "splitToolStripMenuItem";
@@ -261,6 +290,8 @@
             this.sVMToolStripMenuItem.Text = "SVM";
             this.sVMToolStripMenuItem.Click += new System.EventHandler(this.sVMToolStripMenuItem_Click);
             // 
+=======
+>>>>>>> a50649d2cfc743a6122c5b316e9d364e9e508483
             // morphologyToolStripMenuItem
             // 
             this.morphologyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -560,6 +591,7 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
+<<<<<<< HEAD
             // resizeOnlyToolStripMenuItem
             // 
             this.resizeOnlyToolStripMenuItem.Name = "resizeOnlyToolStripMenuItem";
@@ -580,6 +612,57 @@
             this.multipleFileToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.multipleFileToolStripMenuItem.Text = "Multiple File";
             this.multipleFileToolStripMenuItem.Click += new System.EventHandler(this.multipleFileToolStripMenuItem_Click);
+=======
+            // sourceToolStripMenuItem
+            // 
+            this.sourceToolStripMenuItem.Name = "sourceToolStripMenuItem";
+            this.sourceToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.sourceToolStripMenuItem.Text = "Source";
+            this.sourceToolStripMenuItem.Click += new System.EventHandler(this.sourceToolStripMenuItem_Click);
+            // 
+            // destinationToolStripMenuItem
+            // 
+            this.destinationToolStripMenuItem.Name = "destinationToolStripMenuItem";
+            this.destinationToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.destinationToolStripMenuItem.Text = "Destination";
+            this.destinationToolStripMenuItem.Click += new System.EventHandler(this.destinationToolStripMenuItem_Click);
+            // 
+            // bothToolStripMenuItem
+            // 
+            this.bothToolStripMenuItem.Name = "bothToolStripMenuItem";
+            this.bothToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.bothToolStripMenuItem.Text = "Both";
+            this.bothToolStripMenuItem.Click += new System.EventHandler(this.bothToolStripMenuItem_Click);
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
+            // resizeAndSaveToolStripMenuItem
+            // 
+            this.resizeAndSaveToolStripMenuItem.Name = "resizeAndSaveToolStripMenuItem";
+            this.resizeAndSaveToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
+            this.resizeAndSaveToolStripMenuItem.Text = "Resize and Save";
+            this.resizeAndSaveToolStripMenuItem.Click += new System.EventHandler(this.resizeAndSaveToolStripMenuItem_Click);
+            // 
+            // featureExtractionToolStripMenuItem
+            // 
+            this.featureExtractionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hOGToolStripMenuItem});
+            this.featureExtractionToolStripMenuItem.Name = "featureExtractionToolStripMenuItem";
+            this.featureExtractionToolStripMenuItem.Size = new System.Drawing.Size(140, 24);
+            this.featureExtractionToolStripMenuItem.Text = "Feature Extraction";
+            // 
+            // hOGToolStripMenuItem
+            // 
+            this.hOGToolStripMenuItem.Name = "hOGToolStripMenuItem";
+            this.hOGToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.hOGToolStripMenuItem.Text = "HOEF";
+            this.hOGToolStripMenuItem.Click += new System.EventHandler(this.hOGToolStripMenuItem_Click);
+>>>>>>> a50649d2cfc743a6122c5b316e9d364e9e508483
             // 
             // Form1
             // 
@@ -654,6 +737,7 @@
         private System.Windows.Forms.ToolStripMenuItem fillHolesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reApplyToolStripMenuItem11;
         private System.Windows.Forms.ToolStripMenuItem binarizationToolStripMenuItem;
+<<<<<<< HEAD
         private System.Windows.Forms.ToolStripMenuItem splitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hOEFToolStripMenuItem;
@@ -661,6 +745,15 @@
         private System.Windows.Forms.ToolStripMenuItem resizeOnlyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem singleFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem multipleFileToolStripMenuItem;
+=======
+        private System.Windows.Forms.ToolStripMenuItem sourceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem destinationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bothToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resizeAndSaveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem featureExtractionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hOGToolStripMenuItem;
+>>>>>>> a50649d2cfc743a6122c5b316e9d364e9e508483
     }
 }
 
