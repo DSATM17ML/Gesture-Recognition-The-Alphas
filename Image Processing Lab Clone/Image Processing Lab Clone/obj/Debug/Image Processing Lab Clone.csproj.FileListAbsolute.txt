@@ -157,3 +157,4 @@ C:\Users\SAI SRUJAN\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Im
 C:\Users\SAI SRUJAN\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\obj\Debug\Image Processing Lab Clone.pdb
 C:\Users\SAI SRUJAN\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\obj\Debug\Image Processing Lab Clone.csproj.ResolveComReference.cache
 C:\Users\SAI SRUJAN\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\bin\Debug\SVM.dll
+E:\College\Sarathi\Gesture-Recognition-The-Alphas\Image Processing Lab Clone\Image Processing Lab Clone\obj\Debug\Image Processing Lab Clone.csproj.ResolveComReference.cache
